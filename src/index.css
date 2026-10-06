@@ -1,0 +1,54 @@
+/* ==========================================
+   Tailwind CSS v4 - D7Homes Design System
+   ========================================== */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================
+   Custom Design Tokens - D7Homes
+   Color palette: #f8fafc, #1e293b, #d97706, #64748b
+   ========================================== */
+
+/* Override some Tailwind defaults to match the design system */
+:root {
+  --background: #f8fafc;
+  --foreground: #1e293b;
+  --card: #fff;
+  --border: #e2e8f0;
+  --accent: #d97706;
+  --muted: #64748b;
+}
+
+/* Ensure overflow-x is hidden for responsive design */
+html {
+  overflow-x: hidden;
+}
+
+/* Base typography */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+/* Cormorant Garamond for display */
+.display-font {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Accent color utilities */
+.accent-primary {
+  color: #d97706;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
