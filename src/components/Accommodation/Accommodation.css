@@ -1,0 +1,260 @@
+/* =========================================
+   Accommodation Section
+========================================= */
+
+.accommodation-section {
+  padding: 8rem 0;
+  background: #1e293b;
+}
+
+.accommodation-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* =========================================
+   Header
+========================================= */
+
+.accommodation-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.accommodation-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #d97706;
+  margin: 0 0 1rem;
+  font-family: inherit;
+}
+
+.accommodation-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: #f8fafc;
+  margin: 0 0 1.5rem;
+  line-height: 1.3;
+}
+
+.accommodation-description {
+  font-size: 1.125rem;
+  color: #64748b;
+  margin: 0 auto 2rem;
+  max-width: 600px;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+/* =========================================
+   Rooms Grid
+========================================= */
+
+.accommodation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+/* =========================================
+   Room Card
+========================================= */
+
+.room-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 350px;
+  cursor: pointer;
+}
+
+.room-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
+}
+
+/* =========================================
+   Room Overlay
+========================================= */
+
+.room-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    transparent,
+    rgba(30, 41, 59, 0.8)
+  );
+  padding: 1.5rem;
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
+  transform: translateY(100%);
+}
+
+.room-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+.room-description {
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  margin: 0;
+  line-height: 1.4;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.room-cta {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #d97706;
+  background: transparent;
+  border: 2px solid #d97706;
+  border-radius: 4px;
+  font-family: inherit;
+  text-decoration: none;
+  opacity: 0;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+/* =========================================
+   Hover Effects
+========================================= */
+
+.room-card:hover .room-image {
+  transform: scale(1.05);
+}
+
+.room-card:hover .room-overlay {
+  transform: translateY(-80px);
+}
+
+.room-card:hover .room-description,
+.room-card:hover .room-cta {
+  opacity: 1;
+}
+
+.room-card:hover .room-cta {
+  transform: translateY(0);
+}
+
+.room-cta:hover {
+  background: #d97706;
+  color: #1e293b;
+}
+
+/* =========================================
+   Reduced Motion
+========================================= */
+
+.accommodation-section.reduced-motion .room-image,
+.accommodation-section.reduced-motion .room-overlay,
+.accommodation-section.reduced-motion .room-description,
+.accommodation-section.reduced-motion .room-cta {
+  transition: none;
+}
+
+.accommodation-section.reduced-motion .room-card:hover .room-image {
+  transform: none;
+}
+
+/* =========================================
+   Responsive
+========================================= */
+
+@media (max-width: 768px) {
+  .accommodation-section {
+    padding: 5rem 0;
+  }
+
+  .accommodation-container {
+    padding: 0 1.5rem;
+  }
+
+  .accommodation-header {
+    margin-bottom: 3rem;
+  }
+
+  .accommodation-title {
+    font-size: 2.5rem;
+  }
+
+  .accommodation-description {
+    font-size: 1rem;
+  }
+
+  .accommodation-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .room-card {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .accommodation-section {
+    padding: 4rem 0;
+  }
+
+  .accommodation-container {
+    padding: 0 1rem;
+  }
+
+  .accommodation-title {
+    font-size: 2.2rem;
+  }
+
+  .room-card {
+    height: 320px;
+  }
+
+  .room-overlay {
+    padding: 1.25rem;
+  }
+}
+
+/* =========================================
+   Touch Devices
+========================================= */
+
+@media (hover: none) {
+  .room-overlay {
+    transform: translateY(-80px);
+  }
+
+  .room-description,
+  .room-cta {
+    opacity: 1;
+  }
+
+  .room-image {
+    transform: scale(1.05);
+  }
+}

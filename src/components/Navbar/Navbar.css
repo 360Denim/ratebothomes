@@ -1,0 +1,461 @@
+/* =========================================
+   Navbar
+========================================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(248, 250, 252, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* =========================================
+   Brand
+========================================= */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.navbar-brand-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #d97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.navbar-brand-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #1e293b;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   Desktop Navigation
+========================================= */
+
+.navbar-navigation {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-link {
+  position: relative;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  padding: 0.25rem 0;
+  transition: color 0.3s ease;
+}
+
+/* Animated underline */
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #d97706;
+  transition: width 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: #d97706;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   Book Now - Desktop
+========================================= */
+
+.navbar-book-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.4rem;
+  background: #d97706;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(217, 119, 6, 0.2);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.navbar-book-button:hover {
+  background: #b45309;
+  box-shadow: 0 6px 16px rgba(217, 119, 6, 0.3);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   Mobile Elements
+   Hidden above 700px
+========================================= */
+
+.navbar-menu-button,
+.navbar-mobile-overlay,
+.navbar-mobile-drawer {
+  display: none;
+}
+
+/* =========================================
+   Tablet - Below 786px
+========================================= */
+
+@media (max-width: 786px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+
+  .navbar-container {
+    gap: 1rem;
+  }
+
+  .navbar-brand {
+    gap: 0.6rem;
+  }
+
+  .navbar-brand-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .navbar-brand-name {
+    font-size: 1.1rem;
+  }
+
+  .navbar-navigation {
+    gap: 1rem;
+  }
+
+  .navbar-link {
+    font-size: 0.75rem;
+  }
+
+  .navbar-book-button {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* =========================================
+   Mobile Drawer - Below 700px
+========================================= */
+
+@media (max-width: 700px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar-container {
+    justify-content: space-between;
+  }
+
+  /* Hide desktop navigation */
+
+  .navbar-navigation {
+    display: none;
+  }
+
+  /* =========================================
+     Hamburger Button
+  ========================================= */
+
+  .navbar-menu-button {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+
+  .navbar-menu-button span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #1e293b;
+    border-radius: 2px;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  /* Hamburger -> X */
+
+  .navbar-menu-button-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .navbar-menu-button-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-menu-button-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* =========================================
+     Mobile Overlay
+  ========================================= */
+
+  .navbar-mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    display: block;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+    z-index: 1000;
+  }
+
+  .navbar-mobile-overlay-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* =========================================
+     Mobile Drawer
+  ========================================= */
+
+  .navbar-mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(82vw, 340px);
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -10px 0 30px rgba(15, 23, 42, 0.15);
+    transform: translateX(100%);
+    display: block;
+    transition: transform 0.35s ease;
+    z-index: 1001;
+    overflow-y: auto;
+  }
+
+  .navbar-mobile-drawer-open {
+    transform: translateX(0);
+  }
+
+  /* =========================================
+     Drawer Header
+  ========================================= */
+
+  .navbar-mobile-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .navbar-mobile-drawer-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* =========================================
+     Close Button
+  ========================================= */
+
+  .navbar-mobile-close {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: none;
+    background: #f1f5f9;
+    border-radius: 50%;
+    color: #1e293b;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      background 0.3s ease,
+      color 0.3s ease;
+  }
+
+  .navbar-mobile-close:hover {
+    background: #d97706;
+    color: #ffffff;
+  }
+
+  /* =========================================
+     Mobile Navigation Links
+  ========================================= */
+
+  .navbar-mobile-links {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.5rem 2rem;
+  }
+
+  .navbar-mobile-link {
+    position: relative;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e2e8f0;
+    color: #475569;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition:
+      color 0.3s ease,
+      padding-left 0.3s ease;
+  }
+
+  .navbar-mobile-link:hover {
+    color: #d97706;
+    padding-left: 0.4rem;
+  }
+
+  /* =========================================
+     Mobile Book Now
+  ========================================= */
+
+  .navbar-mobile-book-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    padding: 0.85rem 1.2rem;
+    background: #d97706;
+    color: #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    box-shadow: 0 3px 10px rgba(217, 119, 6, 0.2);
+    transition:
+      background 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .navbar-mobile-book-button:hover {
+    background: #b45309;
+    transform: translateY(-2px);
+  }
+}
+
+/* =========================================
+   Small Mobile - Below 400px
+========================================= */
+
+@media (max-width: 400px) {
+  .navbar {
+    padding: 0.7rem 0.8rem;
+  }
+
+  .navbar-brand-name {
+    font-size: 1rem;
+  }
+
+  .navbar-brand-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .navbar-menu-button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .navbar-mobile-drawer {
+    width: 88vw;
+  }
+
+  .navbar-mobile-drawer-header {
+    padding: 1rem 1.2rem;
+  }
+
+  .navbar-mobile-links {
+    padding: 0.8rem 1.2rem 1.5rem;
+  }
+}
+
+/* =========================================
+   Reduced Motion
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-link,
+  .navbar-link::after,
+  .navbar-book-button,
+  .navbar-menu-button span,
+  .navbar-mobile-overlay,
+  .navbar-mobile-drawer,
+  .navbar-mobile-close,
+  .navbar-mobile-link,
+  .navbar-mobile-book-button {
+    transition: none;
+  }
+
+  .navbar-book-button:hover,
+  .navbar-mobile-book-button:hover {
+    transform: none;
+  }
+
+  .navbar-mobile-link:hover {
+    padding-left: 0;
+  }
+}

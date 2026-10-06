@@ -1,14 +1,12 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Rooms from './components/Rooms';
-import Experiences from './components/Experiences';
-import Gallery from './components/Gallery';
-import Testimonials from './components/Testimonials';
-import Accommodation from './components/Accommodation';
-import Amenities from './components/Amenities';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Navbar from './components/Navbar/Navbar';
+import Hero from './components/Hero/Hero';
+import About from './components/About/About';
+import Gallery from './components/Gallery/Gallery';
+import Testimonials from './components/Testimonials/Testimonials';
+import Accommodation from './components/Accommodation/Accommodation';
+import Amenities from './components/Amenities/Amenities';
+import Contact from './components/Contact/Contact';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
